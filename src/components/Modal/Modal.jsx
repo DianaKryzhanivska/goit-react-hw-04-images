@@ -7,6 +7,12 @@ const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ largeImageURL, tags, onClose }) => {
   useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
 
@@ -15,12 +21,6 @@ const Modal = ({ largeImageURL, tags, onClose }) => {
       document.body.style.overflow = 'visible';
     };
   }, [onClose]);
-
-  const handleKeyDown = event => {
-    if (event.code === 'Escape') {
-      onClose();
-    }
-  };
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
