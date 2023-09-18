@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
-export const ImageGallery = ({ images }) => {
+const ImageGallery = ({ images }) => {
   return (
     <ImageList>
       {images.map(image => (
