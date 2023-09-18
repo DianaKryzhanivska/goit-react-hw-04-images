@@ -11,7 +11,7 @@ const App = () => {
   const [searchName, setSearchName] = useState('');
   const [images, setImages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -39,12 +39,10 @@ const App = () => {
 
         setImages(prevImages => [...prevImages, ...normalizedImages]);
         setIsLoading(false);
-        setError('');
+        // setError('');
         setTotalPages(Math.ceil(data.totalHits / 12));
       } catch (error) {
-        toast.error('Something went wrong!', {
-          position: 'top-right',
-        });
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
