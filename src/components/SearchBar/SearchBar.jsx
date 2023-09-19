@@ -11,7 +11,6 @@ import {
 
 const SearchBar = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
-  const [searchName, setSearchName] = useState('');
 
   const handleChange = event => {
     setInputValue(event.target.value);
@@ -19,9 +18,9 @@ const SearchBar = ({ onSubmit }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setSearchName(inputValue.trim());
-    onSubmit(searchName);
-    event.target.reset();
+
+    onSubmit(inputValue.trim());
+    setInputValue('');
   };
 
   return (
